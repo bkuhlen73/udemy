@@ -1,0 +1,25 @@
+mixin listItem(movie)
+  tr
+    td #{movie.id}
+    td #{movie.title}
+    td #{movie.year}
+    td 
+      - const one = movie.userRating >= 1 ? '★': '☆'
+      a(href="/movie/rate/" + movie.id + "/1") #{one}
+      - const two = movie.userRating >= 2 ? '★': '☆'
+      a(href="/movie/rate/" + movie.id + "/2") #{two}
+      - const three = movie.userRating >= 3 ? '★': '☆'
+      a(href="/movie/rate/" + movie.id + "/3") #{three}
+      - const four = movie.userRating >= 4 ? '★': '☆'
+      a(href="/movie/rate/" + movie.id + "/4") #{four}
+      - const five = movie.userRating >= 5 ? '★': '☆'
+      a(href="/movie/rate/" + movie.id + "/5") #{five}
+      
+
+      - const overall = Math.round((movie.sumOfRatings / movie.numOfRatings) * 10) / 10
+      span (#{overall})
+    
+    td
+      a(href="/movie/delete/" + movie.id) löschen
+    td
+      a(href="/movie/form/" + movie.id) bearbeiten

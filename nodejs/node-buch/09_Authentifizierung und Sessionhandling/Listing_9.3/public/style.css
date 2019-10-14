@@ -1,0 +1,19 @@
+img.logo {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+form#login {
+  width: 400px;
+  margin: 0 auto;
+}
+
+form#login label {
+  display: inline-block;
+  width: 120px;
+}
+
+form#login > div > div {
+  padding: 5px;
+}

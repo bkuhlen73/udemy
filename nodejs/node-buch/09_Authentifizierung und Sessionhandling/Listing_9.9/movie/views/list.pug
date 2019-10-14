@@ -1,0 +1,17 @@
+extends ../../templates/base
+include ./list-item
+
+block content
+  h1 Filmdatenbank
+  table
+    thead
+      tr
+        th Id
+        th Title
+        th Year
+        th
+        th
+    tbody
+      - for(let movie of movies)
+        +listItem(movie)
+  a(href="/movie/form") neu

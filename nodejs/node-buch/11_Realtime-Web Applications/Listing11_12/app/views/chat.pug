@@ -1,0 +1,47 @@
+html
+  head
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+
+    body
+      div#msgs(style="height:400px; width:400px; overflow: scroll; float:left;")
+      div#users(style="height:400px; width:100px; overflow: scroll;")
+
+      form#chatForm
+        label(for="msg") #{user}:&nbsp;
+        input#name(type="hidden", value=user)
+        input#msg(type="text")
+        button#sendBtn Send
+
+        script.
+          const socket = new WebSocket('ws://localhost:8181/', 'chat');
+          const name = $('#name').val();
+
+          socket.onopen = () => {
+            socket.send(JSON.stringify({type: 'join', name}));
+          }
+
+          $('#sendBtn').on('click', e => {
+            e.preventDefault();
+            const msg = $('#msg').val();
+
+            socket.send(JSON.stringify({type: 'msg', msg}));
+            $('#msg').val('');
+          });
+
+          socket.onmessage = msg => {
+            const data = JSON.parse(msg.data);
+
+            switch (data.type) {
+                case 'msg':
+                  const msgEl = $(`<div>${data.name}: ${data.msg}</div>`);
+                  $('#msgs').append(msgEl);
+                  break;
+                case 'join':
+                  $('#users').empty();
+                  data.names.forEach(name => {
+                    const user = $(`<div>${name}</div>`);
+                    $('#users').append(user);
+                  });
+                  break;
+              }
+          };

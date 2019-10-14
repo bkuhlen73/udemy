@@ -1,0 +1,11 @@
+{
+  "name": "webchat",
+  "version": "1.0.0",
+  "description": "A realtime chat application in node.js",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3",
+    "websocket": "^1.0.25"
+  }
+}

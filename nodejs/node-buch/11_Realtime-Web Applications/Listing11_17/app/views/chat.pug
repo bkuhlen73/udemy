@@ -1,0 +1,46 @@
+html
+  head
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    script(src="/socket.io/socket.io.js")
+
+    body
+      div(style="width:500px; text-align:right;")
+        a(href="/logout") Logout
+
+      div#msgs(style="height:400px; width:400px; overflow: scroll; float:left;")
+      div#users(style="height:400px; width:100px; overflow: scroll;")
+
+      form#chatForm
+        label(for="msg") #{user}:&nbsp;
+        input#name(type="hidden", value=user)
+        input#msg(type="text")
+        button#sendBtn Send
+
+      script.
+        const socket = io.connect('http://localhost:8080');
+
+        const name = $('#name').val();
+        socket.on('connect', () => {
+          socket.emit("join", {name});
+        });
+
+        $('#sendBtn').on('click', e => {
+          e.preventDefault();
+          const msg = $('#msg').val();
+
+          socket.emit("msg", {msg});
+          $('#msg').val('');
+        });
+
+        socket.on('msg', msg => {
+          const msgData = $(`<div>${msg.name}: ${msg.msg}</div>`);
+          $('#msgs').append(msgData);
+        });
+
+        socket.on('join', msg => {
+          $('#users').empty();
+          msg.names.forEach(name => {
+            const user = $(`<div>${name}</div>`);
+            $('#users').append(user);
+          })
+        });
