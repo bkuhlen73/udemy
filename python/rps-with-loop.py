@@ -35,7 +35,7 @@ while player_wins < winning_score and computer_wins < winning_score:
         if computer == "rock":
             print("Player win!")
             player_wins += 1
-         else:
+        else:
             print("Computer wins!")
             computer_wins += 1
     elif (player == "scissors"):

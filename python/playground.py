@@ -135,29 +135,93 @@
 # print(count_sevens(*nums))
 
 
-def calculate(**kwargs):
-    '''
-    calculate(make_float=False, operation='add', message='You just added',
-            first=2, second=4) # "You just added 6"
-    calculate(make_float=True, operation='divide',
-            first=3.5, second=5) # "The result is 0.7"
-    '''
-    operation_lookup = {
-        'add': kwargs.get('first', 0) + kwargs.get('second', 0),
-        'subtract': kwargs.get('first', 0) - kwargs.get('second', 0),
-        'divide': kwargs.get('first', 0) / kwargs.get('second', 0),
-        'multiply': kwargs.get('first', 0) * kwargs.get('second', 0)
-    }
-    is_float = kwargs.get('make_float', False)
-    operation_value = operation_lookup[kwargs.get('operation', '')]
-    if is_float:
-        final = "{} {}".format(kwargs.get(
-            'message', 'The result is'), float(operation_value))
-    else:
-        final = "{} {}".format(kwargs.get(
-            'message', 'The result is'), int(operation_value))
-    return final
+# def calculate(**kwargs):
+#     '''
+#     calculate(make_float=False, operation='add', message='You just added',
+#             first=2, second=4) # "You just added 6"
+#     calculate(make_float=True, operation='divide',
+#             first=3.5, second=5) # "The result is 0.7"
+#     '''
+#     operation_lookup = {
+#         'add': kwargs.get('first', 0) + kwargs.get('second', 0),
+#         'subtract': kwargs.get('first', 0) - kwargs.get('second', 0),
+#         'divide': kwargs.get('first', 0) / kwargs.get('second', 0),
+#         'multiply': kwargs.get('first', 0) * kwargs.get('second', 0)
+#     }
+#     is_float = kwargs.get('make_float', False)
+#     operation_value = operation_lookup[kwargs.get('operation', '')]
+#     if is_float:
+#         final = "{} {}".format(kwargs.get(
+#             'message', 'The result is'), float(operation_value))
+#     else:
+#         final = "{} {}".format(kwargs.get(
+#             'message', 'The result is'), int(operation_value))
+#     return final
 
 
-print(calculate(make_float=False, operation='add', message='You just added',
-                first=2, second=4))
+# print(calculate(make_float=False, operation='add', message='You just added',
+#                 first=2, second=4))
+
+# def square(num):
+#     return num*num
+
+
+# print(square.__name__)
+
+# def cube(num): return num**3
+
+
+# print(cube(5))
+
+# def decrement_list(l):
+#     return list(map(lambda n: n-1, l))
+
+
+# print(decrement_list([1, 2, 3]))
+
+# def remove_negatives(nums):
+#     return list(filter(lambda l: l >= 0, nums))
+
+
+# l = [1, -2, 3, 4]
+
+# print(remove_negatives(l))
+
+# def is_all_strings(lst):
+#     return all(type(l) == str for l in lst)
+
+
+# lst = ['a', 'b', 2]
+# print(is_all_strings(lst))
+
+# def extremes(nums):
+#     return(min(nums), max(nums))
+
+
+# print(extremes([1, 2, 3, 4, 5]))
+
+# def max_magnitude(nums):
+#     return max(abs(num) for num in nums)
+
+
+# print(max_magnitude([100, 200, -300]))
+
+# def sum_even_values(*args):
+#     return sum(arg for arg in args if arg % 2 == 0)
+
+
+# print(sum_even_values(1, 2, 3, 4, 5, 6, 7, 8))
+
+# def sum_floats(*args):
+#     return sum(arg for arg in args if type(arg) == float)
+
+
+# print(sum_floats(2, 3, 1.1, 2.2))
+
+
+def triple_and_filter(lst):
+    #    return list(map(lambda x: x*3, lst))
+    return list(filter(lambda x: x % 4 == 0, map(lambda x: x*3, lst)))
+
+
+print(triple_and_filter([1, 2, 3, 4, 5, 6, 7, 8]))
