@@ -219,9 +219,13 @@
 # print(sum_floats(2, 3, 1.1, 2.2))
 
 
-def triple_and_filter(lst):
-    #    return list(map(lambda x: x*3, lst))
-    return list(filter(lambda x: x % 4 == 0, map(lambda x: x*3, lst)))
+# def triple_and_filter(lst):
+#     #    return list(map(lambda x: x*3, lst))
+#     return list(filter(lambda x: x % 4 == 0, map(lambda x: x*3, lst)))
 
 
-print(triple_and_filter([1, 2, 3, 4, 5, 6, 7, 8]))
+# print(triple_and_filter([1, 2, 3, 4, 5, 6, 7, 8]))
+
+import math
+
+answer = math.sqrt(15129)
