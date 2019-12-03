@@ -26,7 +26,7 @@ def example1():
                 60000000000000000]}}
 
     is_cat_owner = True
-    if is_cat_owner == True:
+    if is_cat_owner:
         print("MEOW!")
     return (some_tuple, some_variable)
 

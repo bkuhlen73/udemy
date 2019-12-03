@@ -23,4 +23,3 @@ print(dir(p))  # Notice what __msg and __lol have been "mangled" to
 
 print(p._Person__msg)
 print(p._Person__lol)
-print(p.len())
