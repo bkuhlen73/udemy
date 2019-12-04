@@ -9,3 +9,11 @@ f1 = {"Name": "availability-zone", "Values": ['us-east-1b']}
 f2 = {"Name": "instance-state-name", "Values": ['running']}
 for each_in in ec2_con_re.instances.filter(Filters=[f1, f2]):
     print(each_in.id, each_in.state)
+
+# Filters using tags:
+ftags = {"Name": 'tag:Name', "Values": [
+    'EKS-course-cluster-eks-course-nodegroup-Node']}
+
+
+for each_in in ec2_con_re.instances.filter(Filters=[ftags]):
+    print(each_in.id, each_in.state)
