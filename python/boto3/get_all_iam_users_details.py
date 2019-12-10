@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import boto3
-session = boto3.session.Session(profile_name="sandboxo")
+session = boto3.session.Session(profile_name="sandbox")
 '''
 iam_re=session.resource(service_name="iam",region_name="us-east-1")
 
