@@ -4,12 +4,18 @@ function asyncOperation(resolve, value, time) {
   });
 }
 
+console.log('here');
+
 (async () => {
   const hello = await asyncOperation(true, 'Hello', 100);
-  const world = await asyncOperation(true, 'World', 100);
+  const world = await asyncOperation(true, 'World', 10000);
+  console.log('some dummy text');
   try {
-    await asyncOperation(false, '!', 100);
+    await asyncOperation(true, '!', 100);
   } catch (e) {
     console.log(`${hello} ${world}${e}`);
   }
+  console.log(`${hello} ${world}`);
 })();
+
+console.log('i am.');

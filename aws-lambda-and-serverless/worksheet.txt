@@ -1,0 +1,5 @@
+aws lambda add-permission   --profile anninet --function-name "arn:aws:lambda:eu-central-1:187114596772:function:eventLogger:dev"  --source-arn "arn:aws:execute-api:eu-central-1:187114596772:8y2hxvshoj/*/GET/"    --principal apigateway.amazonaws.com  --statement-id 5469773e-00d7-4aca-b954-356da5172183    --action lambda:InvokeFunction
+
+aws lambda add-permission    --function-name "arn:aws:lambda:eu-central-1:187114596772:function:eventLogger:prod"  
+  --source-arn "arn:aws:execute-api:eu-central-1:187114596772:8y2hxvshoj/*/GET/"    --principal apigateway.amazonaws.com  
+    --statement-id 5469773e-00d7-4aca-b954-356da5172183    --action lambda:InvokeFunction

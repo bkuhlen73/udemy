@@ -28,7 +28,7 @@ Resources:
   HelloWorldFunction:
     Properties:
       AutoPublishAlias: live
-      CodeUri: s3://aws-devops-course-stephane/da2aaee84c5991840ff7b4236b2e942b
+      CodeUri: s3://wobk-sam-bucket/85ed32b9e786f531bdcdb89c91c93ae0
       DeploymentPreference:
         Type: Canary10Percent10Minutes
       Events:

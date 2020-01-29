@@ -1,0 +1,9 @@
+{
+    "UserPoolId": "eu-central-1_bJ6U35NUM",
+    "ClientId": "1oli7je838oqfacmvs2a237oaj",
+    "AuthFlow": "ADMIN_NO_SRP_AUTH",
+    "AuthParameters": {
+        "USERNAME": "riyaz",
+        "PASSWORD": "password"
+    }
+}
