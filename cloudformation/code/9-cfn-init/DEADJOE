@@ -1,0 +1,46 @@
+
+*** These modified files were found in JOE when it aborted on Fri Jan 10 21:17:45 2020
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+<x>1</x>
+api-43
+<x>2</x>
+<x>2</x>
+api-44
+<x>3</x>
+api-45
+\n#
+\n
+\n
+
+*** File '(Unnamed)'
+items4
+items
+items4
+screen_items
+4
+\n
+\n
+\\n
+\\n
+Identity
+
+*** File '(Unnamed)'
+sandbox-eks-credentials.txt
+slack.py
+crash.info
+.gitignore
+snaps_copy_between_regions.py
+credentials
+reise.yaml
+reise.yaml
+reise.yaml
+aws-admin.pub
+1-ec2-user-data.yaml
+
+*** File '* Startup Log *'
+Processing '/usr/local/etc/joe/joerc'...
+Processing '/usr/local/etc/joe/ftyperc'...
+Finished processing /usr/local/etc/joe/ftyperc
+Finished processing /usr/local/etc/joe/joerc
