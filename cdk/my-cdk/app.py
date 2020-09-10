@@ -25,8 +25,11 @@ env_sandbox = core.Environment(account="085415390296", region="us-east-1")
 # #Custom Web Server Stack
 # WebServerStack(app, "my-web-server-alb-stack", env=env_sandbox)
 
-# Custom Parameters Secrets
-CustomParametersSecretsStack(app, "custom-parameters-secrets-stack", env=env_sandbox)
+# # Custom Parameters Secrets
+# CustomParametersSecretsStack(app, "custom-parameters-secrets-stack", env=env_sandbox)
+
+# Custom Users and Groups
+CustomIamUsersGroupsStack(app, "custom-users-groups-stack", env=env_sandbox)
 
 core.Tag.add(app, key="stack-team-support-email", value=app.node.try_get_context('envs')['sandbox']['support_email'])
 
