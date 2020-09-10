@@ -1,4 +1,7 @@
 from aws_cdk import core
+from aws_cdk import aws_ssm as _ssm
+from aws_cdk import aws_secretsmanager as _secretsmanager
+import json
 
 class CustomParametersSecretsStack(core.Stack):
 
@@ -7,4 +10,66 @@ class CustomParametersSecretsStack(core.Stack):
 
         sandbox_configs = self.node.try_get_context('envs')['sandbox']
 
+        param1 = _ssm.StringParameter(
+            self,
+            "parameter1",
+            description="Load Testing Configuration",
+            parameter_name="NoOfConcurrentUsers",
+            string_value="100",
+            tier=_ssm.ParameterTier.STANDARD
+        )
+
+        param2 = _ssm.StringParameter(
+            self,
+            "parameter2",
+            description="Load Testing Configuration",
+            parameter_name="/locust/configs/NoOfConcurrentUsers",
+            string_value="100",
+            tier=_ssm.ParameterTier.STANDARD
+        )
+
+        param3 = _ssm.StringParameter(
+            self,
+            "parameter3",
+            description="Load Testing Configuration",
+            parameter_name="/locust/configs/DurationInSec",
+            string_value="300",
+            tier=_ssm.ParameterTier.STANDARD
+        )
+
+        secret1 = _secretsmanager.Secret(
+            self,
+            "secret1",
+            description="Customer DB Password",
+            secret_name="cust_db_pass"
+        )
+
+        templated_secret = _secretsmanager.Secret(
+            self,
+            "secret2",
+            description="A Templated secret for user data",
+            secret_name="user_bernd_attributes",
+            generate_secret_string=_secretsmanager.SecretStringGenerator(
+                secret_string_template=json.dumps(
+                    {"username": "bernd"}
+                ),
+                generate_string_key="password"
+            )
+            )
+
+
+        output_1 = core.CfnOutput(
+            self,
+            "param1",
+            description="NoOfConcurrentUsers",
+            value=f"{param1.string_value}"
+        )
+
+
+        output_2 = core.CfnOutput(
+            self,
+            "secret1Value",
+            description="secret1",
+            value=f"{secret1.secret_value}"
+        )
         
