@@ -1,0 +1,26 @@
+{
+  "app": "python3 app.py",
+  "versionReporting": false,
+  "context": {
+    "@aws-cdk/core:enableStackNameDuplicates": "true",
+    "aws-cdk:enableDiffNoFail": "true",
+    "@aws-cdk/core:stackRelativeExports": "true",
+    "envs": {
+      "sandbox": {
+        "support_email": "abc@xyz.com",
+        "region": "us-east-1",
+        "account": "085415390296",
+        "vpc_configs": {
+          "vpc_cidr": "10.110.0.0/20",
+          "cidr_mask": 24,
+          "set_reserve": false
+        }
+      },
+      "shared": {
+        "support_email": "abc@yxz.com",
+        "region": "eu-central-1",
+        "account": "728652186194"
+      }
+    }
+  }
+}
